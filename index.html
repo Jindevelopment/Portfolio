@@ -150,6 +150,12 @@
               <td>파이썬프로그래밍, 데이터분석과인공지능</td>
             </tr>
             <tr>
+              <td>SQL</td>
+              <td>🌟🌟🌟🌟🌟</td>
+              <td>데이터베이스 설계 및 쿼리 작성</td>
+              <td>데이터베이스</td>
+            </tr>
+            <tr>
               <td>TensorFlow / PyTorch</td>
               <td>🌟🌟🌟🌟</td>
               <td>기계학습 모델 구현, 딥러닝</td>
@@ -178,12 +184,6 @@
               <td>🌟🌟🌟</td>
               <td>시스템 프로그래밍, 마이크로프로세서 제어</td>
               <td>고급C언어, C++Programming, 마이크로프로세서</td>
-            </tr>
-            <tr>
-              <td>SQL</td>
-              <td>🌟🌟🌟🌟🌟</td>
-              <td>데이터베이스 설계 및 쿼리 작성</td>
-              <td>데이터베이스</td>
             </tr>
             <tr>
               <td colspan="2">Git / GitHub</td>
@@ -336,67 +336,67 @@
           최신 LLM 및 소프트웨어 공학 분야 논문을 읽고 핵심 아이디어와 방법론을 정리했습니다.
         </p>
 
-        <!-- 논문 카드 그리드 (프로젝트 카드 스타일 재사용) -->
-        <div class="project-grid">
+        <!-- 논문 목록 (각 PDF를 페이지에서 직접 열람) -->
+        <div class="paper-list">
 
           <!-- 논문 1 -->
-          <div class="project-card">
-            <h3>&#128196; Recommending Usability Improvements with Multimodal LLMs</h3>
-            <p>
-              멀티모달 대규모 언어모델(LLM)을 활용하여<br />
-              UI/UX의 사용성 개선점을 자동으로 제안하는 연구.
-            </p>
-            <dl>
-              <dt>&#10148; 리뷰 자료</dt>
-              <dd><a href="Paper_review/usability-improvements-multimodal-llm.pdf" target="_blank">PDF 보기</a></dd>
-            </dl>
-            <div class="project-tech">
-              <span class="tech-tag">Multimodal LLM</span>
-              <span class="tech-tag">Usability</span>
-              <span class="tech-tag">UI/UX</span>
+          <article class="paper-item">
+            <div class="paper-head">
+              <h3>&#128196; Recommending Usability Improvements with Multimodal LLMs</h3>
+              <p class="paper-desc">
+                멀티모달 대규모 언어모델(LLM)을 활용하여 UI/UX의 사용성 개선점을 자동으로 제안하는 연구.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Multimodal LLM</span>
+                <span class="tech-tag">Usability</span>
+                <span class="tech-tag">UI/UX</span>
+              </div>
             </div>
-            <div class="card-hover-msg">&#128269; 클릭하여 자세히 보기</div>
-          </div>
+            <div class="paper-viewer">
+              <iframe src="Paper_review/usability-improvements-multimodal-llm.pdf" title="Recommending Usability Improvements with Multimodal LLMs 논문 PDF" loading="lazy"></iframe>
+            </div>
+            <a class="paper-open-link" href="Paper_review/usability-improvements-multimodal-llm.pdf" target="_blank">&#10148; 새 탭에서 PDF 열기</a>
+          </article>
 
           <!-- 논문 2 -->
-          <div class="project-card">
-            <h3>&#128196; Comment Traps</h3>
-            <p>
-              주석 처리된 결함 코드(commented-out code)가<br />
-              AI 코드 생성의 결함을 어떻게 증가시키는지 분석한 연구.
-            </p>
-            <dl>
-              <dt>&#10148; 리뷰 자료</dt>
-              <dd><a href="Paper_review/comment-traps-ai-code-generation.pdf" target="_blank">PDF 보기</a></dd>
-            </dl>
-            <div class="project-tech">
-              <span class="tech-tag">LLM</span>
-              <span class="tech-tag">Code Generation</span>
-              <span class="tech-tag">Software Defect</span>
+          <article class="paper-item">
+            <div class="paper-head">
+              <h3>&#128196; Comment Traps</h3>
+              <p class="paper-desc">
+                주석 처리된 결함 코드(commented-out code)가 AI 코드 생성의 결함을 어떻게 증가시키는지 분석한 연구.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">LLM</span>
+                <span class="tech-tag">Code Generation</span>
+                <span class="tech-tag">Software Defect</span>
+              </div>
             </div>
-            <div class="card-hover-msg">&#128269; 클릭하여 자세히 보기</div>
-          </div>
+            <div class="paper-viewer">
+              <iframe src="Paper_review/comment-traps-ai-code-generation.pdf" title="Comment Traps 논문 PDF" loading="lazy"></iframe>
+            </div>
+            <a class="paper-open-link" href="Paper_review/comment-traps-ai-code-generation.pdf" target="_blank">&#10148; 새 탭에서 PDF 열기</a>
+          </article>
 
           <!-- 논문 3 -->
-          <div class="project-card">
-            <h3>&#128196; WebTestPilot</h3>
-            <p>
-              자연어 명세로부터 테스트 오라클을 추론하여<br />
-              웹을 자동으로 End-to-End 테스트하는 에이전트 연구.
-            </p>
-            <dl>
-              <dt>&#10148; 리뷰 자료</dt>
-              <dd><a href="Paper_review/webtestpilot-agentic-web-testing.pdf" target="_blank">PDF 보기</a></dd>
-            </dl>
-            <div class="project-tech">
-              <span class="tech-tag">LLM Agent</span>
-              <span class="tech-tag">Web Testing</span>
-              <span class="tech-tag">End-to-End</span>
+          <article class="paper-item">
+            <div class="paper-head">
+              <h3>&#128196; WebTestPilot</h3>
+              <p class="paper-desc">
+                자연어 명세로부터 테스트 오라클을 추론하여 웹을 자동으로 End-to-End 테스트하는 에이전트 연구.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">LLM Agent</span>
+                <span class="tech-tag">Web Testing</span>
+                <span class="tech-tag">End-to-End</span>
+              </div>
             </div>
-            <div class="card-hover-msg">&#128269; 클릭하여 자세히 보기</div>
-          </div>
+            <div class="paper-viewer">
+              <iframe src="Paper_review/webtestpilot-agentic-web-testing.pdf" title="WebTestPilot 논문 PDF" loading="lazy"></iframe>
+            </div>
+            <a class="paper-open-link" href="Paper_review/webtestpilot-agentic-web-testing.pdf" target="_blank">&#10148; 새 탭에서 PDF 열기</a>
+          </article>
 
-        </div><!-- /.project-grid -->
+        </div><!-- /.paper-list -->
       </div><!-- /.collapsible-content -->
     </section>
 

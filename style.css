@@ -571,6 +571,70 @@ input[type="search"]:focus {
 }
 
 /* ===================================
+   #papers (논문 리뷰)
+   =================================== */
+/* 논문을 전체 폭으로 세로 나열 */
+.paper-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.paper-item {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background-color: var(--color-surface);
+  overflow: hidden;
+}
+
+.paper-head {
+  padding: 1.2rem 1.4rem 0.8rem;
+}
+
+.paper-head h3 {
+  margin: 0 0 0.5rem;
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.paper-desc {
+  margin: 0 0 0.8rem;
+  color: var(--color-text);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* PDF 뷰어: 각 논문을 페이지에서 바로 열람 */
+.paper-viewer {
+  width: 100%;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background-color: #52525b;
+}
+
+.paper-viewer iframe {
+  display: block;
+  width: 100%;
+  height: 640px;
+  border: 0;
+}
+
+.paper-open-link {
+  display: inline-block;
+  margin: 0.9rem 1.4rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .paper-viewer iframe {
+    height: 460px;
+  }
+}
+
+/* ===================================
    #goals
    =================================== */
 /* #goals ol: id + 하위 선택자 조합 */

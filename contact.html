@@ -1,0 +1,253 @@
+<!-- 최진혁 | 개발자 포트폴리오 (연락 & 협업 페이지) -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>최진혁 | 연락 &amp; 협업 신청</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1>&#10070; 최진혁의 개발자 포트폴리오</h1>
+    <p>협업 문의 및 연락 신청 페이지입니다.</p>
+    <!-- 테마 전환 버튼: JS initThemeToggle()이 click 이벤트 처리 -->
+    <button class="theme-toggle-btn">🌙 다크 모드</button>
+  </header>
+
+  <!-- 인사말 배너: JS showGreeting()이 textContent 채움 -->
+  <div class="greeting-banner"></div>
+
+  <!-- ===== NAV ===== -->
+  <nav>
+    <ul>
+      <li><a href="index.html">소개</a></li>
+      <li><a href="contact.html">연락 / 협업</a></li>
+      <li class="nav-spacer"></li>
+      <li>
+        <a href="https://github.com/Jindevelopment" target="_blank" class="nav-icon-link" title="GitHub 바로가기">
+          <img src="images/github.png" alt="GitHub 바로가기" />
+        </a>
+      </li>
+      <li>
+        <a href="https://jindevelopment.tistory.com/" target="_blank" class="nav-icon-link" title="기술 블로그 바로가기">
+          <img src="images/Tistory.png" alt="기술 블로그 바로가기" />
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+
+    <!-- 인트로 섹션 -->
+    <section id="contact-intro">
+      <h2>&#9993; 협업 &amp; 연락 신청</h2>
+      <p>
+        프로젝트 협업, 스터디 제안, 또는 단순 질문이 있으시면<br />
+        아래 양식을 작성해 주세요. 확인 후 빠르게 답변드리겠습니다.
+      </p>
+      <p class="intro-return-link">
+        포트폴리오 소개 페이지로 돌아가려면 &#10148;
+        <a href="index.html" class="btn btn-outline btn-inline">소개 페이지</a>
+      </p>
+    </section>
+
+    <!-- ===== 신청 양식 섹션 ===== -->
+    <section id="contact-form">
+      <h2>&#9998; 신청 양식</h2>
+
+      <!-- JS initFormSubmit()이 submit 이벤트를 처리 (event.preventDefault) -->
+      <form action="#" method="post" novalidate>
+
+        <!-- 기본 정보 -->
+        <fieldset>
+          <legend>&#9758; 기본 정보</legend>
+
+          <div class="form-group">
+            <label for="name">이름 <span class="required-star">*</span></label>
+            <input type="text" id="name" name="name" placeholder="홍길동" autocomplete="name" />
+            <!-- JS setFieldState()가 keyup/change 시 이 요소에 textContent 삽입 -->
+            <div class="field-feedback"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">이메일 주소 <span class="required-star">*</span></label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" autocomplete="email" />
+            <div class="field-feedback"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="github">GitHub 주소 <span class="optional-note">(선택)</span></label>
+            <input type="url" id="github" name="github" placeholder="https://github.com/username" />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">연락처 <span class="optional-note">(선택)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" />
+          </div>
+        </fieldset>
+
+        <!-- 문의 유형 -->
+        <fieldset>
+          <legend>&#9873; 문의 유형</legend>
+          <p class="fieldset-note">어떤 목적으로 연락하시나요? <span class="required-star">*</span></p>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="contact-type" value="collaboration" required />
+              <span class="radio-text">프로젝트 협업 제안</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="contact-type" value="study" />
+              <span class="radio-text">AI / 개발 스터디 그룹 제안</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="contact-type" value="question" />
+              <span class="radio-text">코드 / 기술 질문</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="contact-type" value="tutor" />
+              <span class="radio-text">과외</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="contact-type" value="other" />
+              <span class="radio-text">기타</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- 협업 세부 정보 -->
+        <fieldset>
+          <legend>&#9881; 협업 세부 정보</legend>
+
+          <div class="form-group">
+            <label for="tech-stack">관심 기술 분야</label>
+            <!-- change 이벤트: JS initSelectChange()가 선택 완료 시 테두리 색 변경 -->
+            <select id="tech-stack" name="tech-stack">
+              <option value="">-- 선택해주세요 --</option>
+              <option value="ai-ml">AI / 머신러닝 / 딥러닝</option>
+              <option value="web-frontend">웹 프론트엔드</option>
+              <option value="web-backend">웹 백엔드</option>
+              <option value="data">데이터 분석 / 엔지니어링</option>
+              <option value="etc">기타</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>프로젝트 참여 가능 요일 (복수 선택 가능)</label>
+            <div class="checkbox-group">
+              <label class="checkbox-label"><input type="checkbox" name="day" value="monday" /><span class="checkbox-text">월</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="day" value="tuesday" /><span class="checkbox-text">화</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="day" value="wednesday" /><span class="checkbox-text">수</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="day" value="thursday" /><span class="checkbox-text">목</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="day" value="friday" /><span class="checkbox-text">금</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="day" value="saturday" /><span class="checkbox-text">토</span></label>
+              <label class="checkbox-label"><input type="checkbox" name="day" value="sunday" /><span class="checkbox-text">일</span></label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="experience">개발 경력 / 수준</label>
+            <select id="experience" name="experience">
+              <option value="">-- 선택해주세요 --</option>
+              <option value="beginner">입문 (6개월 미만)</option>
+              <option value="junior">초급 (6개월 ~ 1년)</option>
+              <option value="intermediate">중급 (1~3년)</option>
+              <option value="senior">시니어 (3년 이상)</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <!-- 포트폴리오 피드백 -->
+        <fieldset>
+          <legend>&#10026; 포트폴리오 피드백 <span class="optional-note">(선택)</span></legend>
+          <p class="fieldset-note">포트폴리오를 보고 어떻게 생각하셨나요?</p>
+          <div class="radio-group">
+            <label class="radio-label">
+              <input type="radio" name="portfolio-rating" value="great" />
+              <span class="radio-text">&#9733;&#9733;&#9733; 인상적이었어요!</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="portfolio-rating" value="good" />
+              <span class="radio-text">&#9733;&#9733; 괜찮았어요!</span>
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="portfolio-rating" value="improve" />
+              <span class="radio-text">&#9733; 개선이 필요해 보여요...</span>
+            </label>
+          </div>
+
+          <div class="form-group form-group-top">
+            <label for="feedback">자유 피드백</label>
+            <textarea
+              id="feedback"
+              name="feedback"
+              placeholder="포트폴리오에 대한 의견이나 개선점을 자유롭게 적어주세요."
+            ></textarea>
+          </div>
+        </fieldset>
+
+        <!-- 전달할 메시지 -->
+        <fieldset>
+          <legend>&#9993; 전달할 메시지</legend>
+
+          <div class="form-group">
+            <label for="subject">제목 <span class="required-star">*</span></label>
+            <input type="text" id="subject" name="subject" placeholder="문의 제목을 입력해주세요" />
+            <div class="field-feedback"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">내용 <span class="required-star">*</span></label>
+            <!-- keyup 이벤트: JS updateCharCounter()가 글자 수 카운터 업데이트 -->
+            <textarea
+              id="message"
+              name="message"
+              placeholder="협업 제안, 질문, 또는 하고 싶은 말을 자유롭게 적어주세요."
+              required
+            ></textarea>
+            <!-- JS textContent 조작 대상 카운터 -->
+            <div class="char-counter" id="message-counter">0 / 500자</div>
+            <div class="field-feedback"></div>
+          </div>
+
+          <div class="form-group">
+            <div class="agree-group">
+              <input type="checkbox" id="agree" name="agree" value="yes" />
+              <label for="agree">입력한 정보를 제출하는 것에 동의합니다. <span class="required-star">*</span></label>
+            </div>
+            <div class="field-feedback"></div>
+          </div>
+        </fieldset>
+
+        <!-- 제출 버튼 -->
+        <div class="form-buttons">
+          <input type="submit" value="✉️ 제출하기" />
+          <input type="reset" value="🔄 초기화" />
+        </div>
+
+      </form>
+
+      <!-- 폼 제출 결과 영역: JS showSubmissionResult()가 createElement/appendChild로 채우고 style.display 전환 -->
+      <div id="submission-result"></div>
+
+    </section><!-- /#contact-form -->
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>
+      &copy; 2026 최진혁 (Jindevelopment) &nbsp;|&nbsp;
+      <a href="https://github.com/Jindevelopment" target="_blank">GitHub</a>
+      &nbsp;|&nbsp;
+      <a href="index.html">소개 페이지로 돌아가기</a>
+    </p>
+    <p>명지대학교 정보통신공학과 &nbsp;|&nbsp; 최진혁</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -6,30 +6,35 @@
    텍스트: #1e293b (가독성 높은 다크 네이비)
    =================================== */
 :root {
-  --color-bg:           #f8fafc;
+  --color-bg:           #f5f7fb;
   --color-surface:      #ffffff;
   --color-primary:      #2563eb;
   --color-primary-dark: #1d4ed8;
   --color-accent:       #06b6d4;
   --color-text:         #1e293b;
   --color-text-muted:   #64748b;
-  --color-border:       #e2e8f0;
+  --color-border:       #e6eaf1;
   --color-success:      #16a34a;
   --color-error:        #dc2626;
   --color-warning:      #d97706;
-  --shadow:             0 2px 8px rgba(0, 0, 0, 0.08);
-  --radius:             8px;
-  --transition:         0.3s ease;
+  --shadow-sm:          0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow:             0 4px 6px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -2px rgba(15, 23, 42, 0.05);
+  --shadow-lg:          0 12px 28px -8px rgba(15, 23, 42, 0.12), 0 6px 12px -6px rgba(15, 23, 42, 0.08);
+  --radius:             12px;
+  --radius-sm:          8px;
+  --transition:         0.25s ease;
 }
 
 /* 다크 테마: JS가 body에 .dark-theme 클래스를 토글할 때 적용 */
 body.dark-theme {
-  --color-bg:       #0f172a;
-  --color-surface:  #1e293b;
+  --color-bg:       #0b1120;
+  --color-surface:  #151d2e;
   --color-text:     #e2e8f0;
   --color-text-muted: #94a3b8;
-  --color-border:   #334155;
-  --shadow:         0 2px 8px rgba(0, 0, 0, 0.4);
+  --color-border:   #2a3650;
+  --shadow-sm:      0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow:         0 4px 10px rgba(0, 0, 0, 0.45);
+  --shadow-lg:      0 14px 32px rgba(0, 0, 0, 0.55);
 }
 
 /* ===================================
@@ -47,12 +52,18 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', 'Malgun Gothic', sans-serif;
+  font-family: 'Pretendard', 'Pretendard Variable', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Malgun Gothic', system-ui, sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   transition: background-color var(--transition), color var(--transition);
 }
+
+/* 헤딩 자간을 살짝 좁혀 밀도 있는 타이포 */
+h1, h2, h3, h4 { letter-spacing: -0.01em; }
 
 /* h1, h2, h3: 그룹 선택자 - 제목 요소 공통 스타일을 한 번에 적용 */
 h1, h2, h3 {
@@ -101,9 +112,9 @@ ul, ol { list-style: none; }
    Header (두 페이지 공통)
    =================================== */
 header {
-  background-color: var(--color-primary);
+  background-image: linear-gradient(125deg, #1d4ed8 0%, #2563eb 55%, #0891b2 140%);
   color: #ffffff;
-  padding: 1.75rem 1.5rem 1.25rem;
+  padding: 2.4rem 1.5rem 2rem;
   text-align: center;
   box-shadow: var(--shadow);
 }
@@ -140,27 +151,34 @@ header p {
    인사말 배너 (JS가 textContent 채움)
    =================================== */
 .greeting-banner {
-  background: linear-gradient(90deg, var(--color-primary-dark), var(--color-accent));
-  color: #ffffff;
-  padding: 0.55rem 1.5rem;
+  background-color: rgba(37, 99, 235, 0.08);
+  color: var(--color-primary);
+  padding: 0.6rem 1.5rem;
   text-align: center;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   min-height: 2rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
 /* ===================================
    Nav (두 페이지 동일 스타일)
    =================================== */
 nav {
-  background-color: var(--color-surface);
-  border-bottom: 2px solid var(--color-primary);
+  background-color: rgba(255, 255, 255, 0.82);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 1px solid var(--color-border);
   padding: 0 1.5rem;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-sm);
   transition: background-color var(--transition);
+}
+
+body.dark-theme nav {
+  background-color: rgba(21, 29, 46, 0.82);
 }
 
 /* nav > ul: nav 바로 아래 ul만 제어하기 위해 자식 선택자 사용 */
@@ -197,10 +215,12 @@ nav > ul > li > a:hover {
 }
 
 .nav-icon-link img {
-  width: 56px;
+  width: 30px;
   height: auto;
-  transition: opacity var(--transition);
+  transition: opacity var(--transition), transform var(--transition);
 }
+
+.nav-icon-link:hover img { transform: translateY(-1px); }
 
 .nav-icon-link:hover img {
   opacity: 0.72;
@@ -235,13 +255,16 @@ main {
    =================================== */
 section {
   background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  padding: 1.5rem;
-  margin-bottom: 1.75rem;
-  box-shadow: var(--shadow);
-  transition: background-color var(--transition);
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: background-color var(--transition), box-shadow var(--transition);
   animation: fadeInUp 0.5s ease both;
 }
+
+section:hover { box-shadow: var(--shadow); }
 
 /* section > h2: 섹션 바로 아래 h2만 선택 - 좌측 강조 선 */
 section > h2 {
@@ -303,12 +326,12 @@ h2.collapsible-header:hover {
 }
 
 .profile-img {
-  width: 150px;
-  height: 150px;
+  width: 155px;
+  height: 155px;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid var(--color-primary);
-  box-shadow: var(--shadow);
+  border: 4px solid var(--color-surface);
+  box-shadow: 0 0 0 3px var(--color-primary), var(--shadow-lg);
   flex-shrink: 0;
 }
 
@@ -342,6 +365,7 @@ h2.collapsible-header:hover {
 .btn-primary {
   background-color: var(--color-primary);
   color: #ffffff;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.28);
 }
 
 /* a:link / a:visited 보다 specificity를 높여 흰색 글자 유지 */
@@ -511,7 +535,7 @@ input[type="search"]:focus {
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.18);
+  box-shadow: var(--shadow-lg);
   border-color: var(--color-primary);
 }
 
